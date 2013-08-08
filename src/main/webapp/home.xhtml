@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:my="http://java.sun.com/jsf/composite/components">
+	
+	<h:outputStylesheet name="brmsdemo.css" library="css" />
+	<h:outputScript target="head" name="showMessage.js" library="js" />
+	
+	<ui:define name="content">
+		<h:form id="homeForm">
+			<rich:panel id="processPanel" header="Processos em execução" headerClass="header">
+				<rich:dataTable var="process" value="#{homeAction.processes}"  >
+					<rich:column>
+							<f:facet name="header">Id</f:facet>
+							<h:outputText value="#{process.processId}" />
+					</rich:column>
+					<rich:column>
+							<f:facet name="header">Instance Id</f:facet>
+							<h:outputText value="#{process.instanceId}" />
+					</rich:column>
+					<rich:column>
+							<f:facet name="header">Status</f:facet>
+							<h:outputText value="#{process.status}" />
+					</rich:column>
+				</rich:dataTable>
+			</rich:panel>
+			<rich:panel id="inboxPanel" header="Tarefas: inbox" headerClass="header" >
+				<rich:dataTable var="task" value="#{homeAction.tasks}" >
+					<rich:column>
+							<f:facet name="header">Instance Id</f:facet>
+							<h:outputText value="#{task.processInstanceId}" />
+					</rich:column>
+					<rich:column>
+							<f:facet name="header">Task Id</f:facet>
+							<h:outputText value="#{task.id}" />
+					</rich:column>
+					<rich:column>
+							<f:facet name="header">Task Name</f:facet>
+							<h:outputText value="#{task.name}" />
+					</rich:column>
+					<rich:column>
+							<f:facet name="header">Action</f:facet>
+							<h:commandButton action="#{taskAction.openTask(task.id, task.name)}" value="Open Task"  />
+					</rich:column>		
+				</rich:dataTable>
+			</rich:panel>
+			
+			<rich:panel id="newProcessPanel" header="Novo processo" headerClass="header">
+				<h:outputLabel value="Id do processo: " for="id" />
+				<h:inputText id="id" value="#{homeAction.processId}" />
+				<h:commandButton action="#{homeAction.createProcess}" value="Criar Processo"  />
+			</rich:panel>
+		</h:form>
+		
+	</ui:define>
+</ui:composition>

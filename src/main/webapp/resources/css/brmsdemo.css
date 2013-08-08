@@ -1,0 +1,115 @@
+/* Core styles for the page */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F1F1F1;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 0.8em;
+  color:#363636;
+}
+
+
+#top {
+  color: black;
+  height: 30px;
+  margin: 0 auto;
+  width: 905px; /* subtract 40px from banner width for padding */
+  text-align: right;
+  background-repeat: repeat-x;
+  padding-top: 0px;
+}
+
+#login {
+  margin-top: 20px;
+  margin-bottom: auto;
+  margin-left:auto;
+  margin-right:auto;
+  width:35%;
+  height: 50%;
+  background-color:#b0e0e6;
+}
+
+#container {
+  font-size: 32;
+  margin: 0 auto;
+  padding: 0 20px 10px 20px;
+  border-top: 5px solid #000000;
+  border-left: 5px solid #8c8f91;
+  border-right: 5px solid #8c8f91;
+  border-bottom: 25px solid #8c8f91;
+  width: 1000px; /* subtract 40px from banner width for padding */
+  background: #FFFFFF;
+  background-image: url(#{request.contextPath}/resources/gfx/headerbkg.png);
+  background-repeat: repeat-x;
+  padding-top: 0px;
+  box-shadow: 3px 3px 15px #d5d5d5;
+}
+
+#content {
+  clear: both;
+  align: center;
+  width: 1000px;
+}
+
+#aside ul {
+  padding-left: 30px;
+}
+.dualbrand {
+  float: right;
+  padding-right: 10px;
+}
+#footer {
+  clear: both;
+  text-align: center;
+  color: #666666;
+  font-size: 16;
+  font-style: italic;
+}
+code {
+  font-size: 1.1em;
+}
+a {
+  color: #4a5d75;
+  text-decoration: none;
+}
+a:hover {
+  color: #369;
+  text-decoration: underline;
+}
+h1 {
+  color:#243446;
+  font-size: 2.25em;
+}
+h2 {
+  font-size: 1em;
+}
+h3 {
+  color:#243446;
+}
+h4 {
+}
+h5 {
+}
+h6 {
+}
+
+/* Member registration styles */
+span.invalid {
+  padding-left: 3px;
+  color: red;
+}
+
+label {
+  float: left;
+  width: 15%;
+  margin-left: 20px;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+  text-align: left;
+  font-weight: bold;
+  color:#363636;
+}
+
+input {
+  margin-bottom: 8px;
+}

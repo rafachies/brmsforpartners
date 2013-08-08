@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition template="/WEB-INF/templates/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:my="http://java.sun.com/jsf/composite/components">
+
+	<h:outputStylesheet name="brmsdemo.css" library="css" />
+	<h:outputScript target="head" name="showMessage.js" library="js" />
+
+	<ui:define name="content">
+		<h:form id="riskAnalysisForm">
+			<rich:panel id="taskPanel" header="Tasks form" headerClass="header">
+				<h:outputLabel for="cpf" value="cpf: " />
+				<h:inputText id="cpf" value="#{parameter.value}" />
+				<h:outputLabel for="age" value="idade: " />
+				<h:inputText id="age" value="#{parameter.value}" />
+				<h:outputLabel for="monthlyIncome" value="renda: " />
+				<h:inputText id="monthlyIncome" value="#{parameter.value}" />
+				<h:commandButton action="#{taskAction.completeTask}" value="Submit" />
+			</rich:panel>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
