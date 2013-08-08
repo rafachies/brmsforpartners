@@ -1,16 +1,20 @@
 package com.redhat.brmsdemo.model;
 
+import java.io.Serializable;
 
-public class Customer {
+
+public class Customer implements Serializable {
 	
+	private static final long serialVersionUID = 3393123662798184687L;
+
 	private Integer id;
 	private String cpf;
 	private Integer scpcScore;
-	private Integer monthlyIncome;
+	private Integer monthlyIncome = 0;
 	private Integer age;
 	
-	private Boolean approved;
-	private Integer creditValue;
+	private Boolean approved = true;
+	private Integer creditValue = 0;
 	
 	public Integer getId() {
 		return id;

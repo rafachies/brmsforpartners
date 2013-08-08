@@ -28,8 +28,6 @@ public class EngineManager implements Serializable {
 		knowledgeSession.insert(fact);
 	}
 	
-	
-
 	public List<ProcessInstance> getProcessInstances() throws Exception {
 		return processStore.getProcesses();
 	}

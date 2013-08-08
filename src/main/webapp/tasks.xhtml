@@ -19,7 +19,7 @@
 				<h:inputText id="actor" value="#{taskAction.actor}" />
 				<a4j:commandButton action="#{taskAction.refreshActor}" value="Submit" render="inboxPanel"/>	
 				
-				<rich:dataTable var="task" value="#{taskAction.tasks}" id="taskTable" rendered="not empty #{taskAction.tasks}" >
+				<rich:dataTable var="task" value="#{taskAction.tasks}" id="taskTable" >
 					<rich:column>
 							<f:facet name="header">Instance Id</f:facet>
 							<h:outputText value="#{task.processInstanceId}" />
@@ -34,7 +34,7 @@
 					</rich:column>
 					<rich:column>
 							<f:facet name="header">Action</f:facet>
-							<h:commandButton action="#{taskAction.openTask(task.id, task.name)}" value="Abrir Tarefa"  />
+							<h:commandButton action="#{taskAction.openTask(task.id)}" value="Abrir Tarefa"  />
 					</rich:column>		
 				</rich:dataTable>
 				
