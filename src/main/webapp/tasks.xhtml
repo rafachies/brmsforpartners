@@ -16,9 +16,10 @@
 			
 			<rich:panel id="inboxPanel" header="Tarefas: inbox" headerClass="header" >
 				<h:outputLabel for="actor" value="ator: " />
-				<h:inputText id="actor" value="#{parameter.value}" />
-				<a4j:commandButton action="#{taskAction.listTasks}" value="Submit" render="inboxPanel"/>	
-				<rich:dataTable var="task" value="#{homeAction.tasks}" >
+				<h:inputText id="actor" value="#{taskAction.actor}" />
+				<a4j:commandButton action="#{taskAction.refreshActor}" value="Submit" render="inboxPanel"/>	
+				
+				<rich:dataTable var="task" value="#{taskAction.tasks}" id="taskTable" rendered="not empty #{taskAction.tasks}" >
 					<rich:column>
 							<f:facet name="header">Instance Id</f:facet>
 							<h:outputText value="#{task.processInstanceId}" />
@@ -33,16 +34,12 @@
 					</rich:column>
 					<rich:column>
 							<f:facet name="header">Action</f:facet>
-							<h:commandButton action="#{taskAction.openTask(task.id, task.name)}" value="Open Task"  />
+							<h:commandButton action="#{taskAction.openTask(task.id, task.name)}" value="Abrir Tarefa"  />
 					</rich:column>		
 				</rich:dataTable>
+				
 			</rich:panel>
-			
-			<rich:panel id="newProcessPanel" header="Novo processo" headerClass="header">
-				<h:outputLabel value="Id do processo: " for="id" />
-				<h:inputText id="id" value="#{homeAction.processId}" />
-				<h:commandButton action="#{homeAction.createProcess}" value="Criar Processo"  />
-			</rich:panel>
+			<h:outputLabel value="NENHUMA TAREFA A REALIZAR" />
 		</h:form>
 		
 	</ui:define>
